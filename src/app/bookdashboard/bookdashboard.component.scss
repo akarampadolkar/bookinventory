@@ -1,0 +1,25 @@
+.book-menu{
+  padding: 10px;
+  background: #F0F0F6;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgb(211 209 238 / 50%);
+}
+
+.book-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.book-menu:hover{
+  background: #333333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.book-menu span svg{
+  color: #5E56E7;
+ }
+
+ .book-menu:hover span svg{
+   color: #fff;
+ }

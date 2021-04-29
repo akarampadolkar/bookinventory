@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col" *ngIf="bookName">
+    <h1>
+      <span (click)="goBackToDashboard()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+      </span>
+      {{bookName.name}}
+    </h1>
+  </div>
+</div>
+
+<div class="row form-group has-search">
+  <div class="col-lg col-sm col-md col-xs mb-2">
+  <span class="form-control-feedback">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+    </svg>
+  </span>
+  <input type="text"
+      class="form-control"
+      #element
+      placeholder="Search">
+</div>
+</div>
+
+<div class="row mt-4 book-container p-2">
+  <div class="col-lg-3 col-sm-6 col-md-3 col-xs-12 mb-2" *ngFor="let books of booksList; let i = index;">
+    <div class="card" style="width: 10rem;">
+      <img src={{imgUrl}} class="card-img-top" alt="..." style="width:100%;">
+      <div class="card-body">
+        <h5 class="card-title" *ngIf="books.authors.length">{{books.authors[0].name}}</h5>
+        <!-- <p class="card-text">{{books.title}}</p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-2 float-right">
+  <div class="col col-lg col-sm col-md col-xs mb-2">
+    <ngb-pagination
+    [collectionSize]="totalCount"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [maxSize]="maxSize"
+    (pageChange)="pageChangeEvent($event)"
+    aria-label="Default pagination">
+    <ng-template ngbPaginationPrevious>Prev</ng-template>
+    <ng-template ngbPaginationNext>Next</ng-template>
+  </ngb-pagination>
+  </div>
+</div>
